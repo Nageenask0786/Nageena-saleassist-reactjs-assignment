@@ -9,7 +9,7 @@ import Header from "../Header";
 import ProductCard from "../ProductsCard";
 
 import "./index.css";
-class Bags extends Component {
+class Electronics extends Component {
   state = { productsData: [], isLoading: true };
   componentDidMount() {
     this.getElectronics();
@@ -17,14 +17,16 @@ class Bags extends Component {
 
   getElectronics = async () => {
     try {
-      const response = await axios.get(`/bags.json`);
+      const response = await axios.get(
+        `https://fakestoreapi.com/products/category/electronics`
+      );
       if (response.status === 200) {
         const formatData = response.data.map((each) => ({
           id: each.id,
           title: each.title,
           price: each.price,
-          imageUrl: each.image_url,
-          discount: each.discount,
+          imageUrl: each.image,
+          discount: Math.floor(Math.random() * 30),
         }));
 
         this.setState({ productsData: formatData, isLoading: false });
@@ -64,13 +66,12 @@ class Bags extends Component {
   render() {
     const { isLoading } = this.state;
     return (
-      <div className="bags-route">
+      <div className="electronics-route">
         <Header />
-
         {isLoading ? this.renderLoader() : this.renderSuccessView()}
       </div>
     );
   }
 }
 
-export default Bags;
+export default Electronics;

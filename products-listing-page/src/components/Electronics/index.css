@@ -2,7 +2,7 @@
   margin: 0px;
   box-sizing: border-box;
 }
-.bags-route {
+.electronics-route {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -14,7 +14,7 @@
   flex-wrap: wrap;
   width: 100%;
   min-height: 90%;
-  margin-top: 10px auto;
+  margin: 80px auto;
   justify-content: flex-start;
 }
 
